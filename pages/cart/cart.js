@@ -57,7 +57,7 @@ Page({
     var len = data.length,
       // 所需要计算的总价格，但是要注意排除掉未选中的商品
       account = 0,
-      
+
       // 购买商品的总个数
       selectedCounts = 0,
       // 购买商品种类的总数
@@ -82,10 +82,15 @@ Page({
   },
 
 
-  /*调整商品数目*/
+  /*
+  * 调整商品数目
+  * params：
+  * id - {int} 商品ID
+  * type - {int} 
+  */
   changeCounts: function (event) {
     var id = cart.getDataSet(event, 'id'),
-      type = cart.getDataSet(event, 'type'),
+      type = cart.getDataSet(event, 'type'), // 增加还是减少
       index = this._getProductIndexById(id),
       counts = 1;
     if (type == 'add') {
@@ -110,7 +115,11 @@ Page({
     }
   },
 
-  /*删除商品*/
+  /*
+  * 删除商品
+  * param:
+  * id - {int} 商品ID
+  */
   delete: function (event) {
     var id = cart.getDataSet(event, 'id'),
       index = this._getProductIndexById(id);
