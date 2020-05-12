@@ -57,6 +57,7 @@ Page({
     var len = data.length,
       // 所需要计算的总价格，但是要注意排除掉未选中的商品
       account = 0,
+      
       // 购买商品的总个数
       selectedCounts = 0,
       // 购买商品种类的总数
